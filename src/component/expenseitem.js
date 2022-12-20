@@ -1,15 +1,14 @@
+import './Expenseitem.css'
+
 function ExpenseItem(){
     return  (
-        <div>
-            <div>
-                <h2>Expense item</h2>
+        <div className='expense-item'>
+
+            <div>March 28 2021</div>
+            <div className='expense-item__description'>
+                <h2>Car insorence</h2>
+            <div className='expense-item__price'>$294.76 </div>
             </div>
-            <div>
-                <p>Food Rs.10</p>
-                <p>Petrol Rs 100</p>
-                <p>Movies Rs 200</p>
-            </div>
-         
         </div>
     );
     
