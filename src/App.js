@@ -1,19 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+
 import ExpenseItem from './component/expenseitem';
 function App() {
     const expense=[
-      { Date:new Date(2021,2,28), Title:'car Insourence',Amount:294.76,id:'1=>',LocationOfExpenditure:'Lucknow'},
-      { Date:new Date(2021,2,28), Title:'Bike Insourence',Amount:129.90,id:'2=>',LocationOfExpenditure:'Bihar'},
-      { Date:new Date(2021,2,28), Title:'truck Insourence',Amount:300.98,id:'3=>',LocationOfExpenditure:'Madhya pradesh'},
-      { Date:new Date(2021,2,28), Title:'life Insourence',Amount:100.76,id:'4=>',LocationOfExpenditure:'Jubalia'},
-      { Date:new Date(2021,2,28), Title:'lifere Insourence',Amount:100.76,id:'5=>',LocationOfExpenditure:'delhi'}
-    ]
+       { Date:new Date(2021,2,28), Title:'car Insourence',Amount:294.76,LocationOfExpenditure:'Lucknow'},
+       { Date:new Date(2020,5,27), Title:'Bike Insourence',Amount:129.90,LocationOfExpenditure:'Bihar'},
+       { Date:new Date(2021,2,28), Title:'truck Insourence',Amount:300.98,LocationOfExpenditure:'Madhya pradesh'},
+       { Date:new Date(2021,5,29), Title:'life Insourence',Amount:100.76,LocationOfExpenditure:'Jubalia'},
+       { Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'delhi'}
+    ];
   return (
     <div>
-      <h1>let get start
-      </h1>
-
  { expense.map((item)=>
   <ExpenseItem 
   title={item.Title} 
