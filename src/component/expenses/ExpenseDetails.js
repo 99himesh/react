@@ -1,6 +1,6 @@
-import './ExpenseDate.css'
 
-function ExpenseDetails(props){
+
+const ExpenseDetails=(props)=>{
     return (
         <div className='expense-item'>
            <h2>{props.title}</h2>

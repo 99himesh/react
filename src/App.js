@@ -1,17 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-
-import ExpenseItem from './component/expenseitem';
-function App() {
+import ExpenseItem from './component/expenses/expenseitem';
+const App=()=> {
     const expense=[
        { Date:new Date(2021,2,28), Title:'car Insourence',Amount:294.76,LocationOfExpenditure:'Lucknow'},
        { Date:new Date(2020,5,27), Title:'Bike Insourence',Amount:129.90,LocationOfExpenditure:'Bihar'},
        { Date:new Date(2021,2,28), Title:'truck Insourence',Amount:300.98,LocationOfExpenditure:'Madhya pradesh'},
        { Date:new Date(2021,5,29), Title:'life Insourence',Amount:100.76,LocationOfExpenditure:'Jubalia'},
-       { Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'delhi'}
-    ];
+       { Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'delhi'},
+       { Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'noida'}
+      ];
   return (
-    <div>
+    <card>
  { expense.map((item)=>
   <ExpenseItem 
   title={item.Title} 
@@ -40,7 +40,8 @@ function App() {
      amount={expense[3].Amount} 
      id={expense[3].LocationOfExpenditure}> 
      </ExpenseItem> */}
-    </div>
+    </card>
+
   );
 }
 
