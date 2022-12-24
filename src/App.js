@@ -11,7 +11,7 @@ const App=()=> {
        { Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'noida'}
       ];
   return (
-    <card>
+    <card >
  { expense.map((item)=>
   <ExpenseItem 
   title={item.Title} 
