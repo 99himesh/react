@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+
+import NewExpense from './component/new expense/NewExpense';
 import ExpenseItem from './component/expenses/expenseitem';
 const App=()=> {
     const expense=[
@@ -11,7 +13,12 @@ const App=()=> {
        { Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'noida'}
       ];
   return (
+
+   
     <card >
+      
+    <NewExpense/>    
+   
  { expense.map((item)=>
   <ExpenseItem 
   title={item.Title} 
@@ -21,6 +28,7 @@ const App=()=> {
   LocationOfExpenditure={item.LocationOfExpenditure}> 
   </ExpenseItem>
   ) }
+
 {/*   
      <ExpenseItem 
      title={expense[1].Title} 
