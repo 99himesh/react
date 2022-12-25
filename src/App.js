@@ -1,78 +1,69 @@
 import logo from './logo.svg';
 import './App.css';
-import card from './component/UI/card';
+import Card from './component/UI/card';
 import ExpensesFilter from './component/new expense/expenseFilter';
-
+import React,{useState} from 'react';
 import NewExpense from './component/new expense/NewExpense';
 import ExpenseItem from './component/expenses/expenseitem';
-import { useState } from 'react';
+import ExpenseDetails from './component/expenses/expenses';
+
+
+const DUMMY_EXPENSES=[
+  {id:'e1',Date:new Date(2021,2,28), Title:'car Insourence',Amount:294.76,LocationOfExpenditure:'Lucknow'},
+  {id:'e2', Date:new Date(2020,5,27), Title:'Bike Insourence',Amount:129.90,LocationOfExpenditure:'Bihar'},
+  {id:'e3', Date:new Date(2021,2,28), Title:'truck Insourence',Amount:300.98,LocationOfExpenditure:'Madhya pradesh'},
+  { id:'e4',Date:new Date(2021,5,29), Title:'life Insourence',Amount:100.76,LocationOfExpenditure:'Jubalia'},
+  {id:'e5',Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'delhi'},
+  {id:'e6',  Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'noida'}
+ ];
+
+ 
+
 const App=()=> {
-    const expense=[
-       {id:'e1',Date:new Date(2021,2,28), Title:'car Insourence',Amount:294.76,LocationOfExpenditure:'Lucknow'},
-       {id:'e2', Date:new Date(2020,5,27), Title:'Bike Insourence',Amount:129.90,LocationOfExpenditure:'Bihar'},
-       {id:'e3', Date:new Date(2021,2,28), Title:'truck Insourence',Amount:300.98,LocationOfExpenditure:'Madhya pradesh'},
-       { id:'e4',Date:new Date(2021,5,29), Title:'life Insourence',Amount:100.76,LocationOfExpenditure:'Jubalia'},
-       {id:'e5',Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'delhi'},
-       {id:'e6',  Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'noida'}
-      ];
+  const [expenses,setExpenses]=useState(DUMMY_EXPENSES);
+   
 
 const addExpenseHandeler=(expense)=>{
-  console.log('In App.js');
-  console.log(expense);
 
-}
+  // setExpenses([expenses,...expenses])
+  setExpenses((prevExpenses)=>{
+    return [expense,...prevExpenses];
+  });
+};
 
-const Expenses=(props)=>{
+
+  // console.log('In App.js');
+  // console.log(expense);
+
+// }
+// const Expenses=(props)=>{
   const [filteredYear,setFilteredYear]=useState('2020');
 
+// }
+const filteredChangeHandler=selectedYear=> setFilteredYear(selectedYear);
 
-const filteredChangeHandler=selectedYear=>{
-  setFilteredYear(selectedYear);
-}
-
-  return (
-
-   
-    <card >
-     < ExpensesFilter selected={filteredYear} onchange={filteredChangeHandler}  />
-    <NewExpense  onaddExpense={addExpenseHandeler} />
+   return (
+    <Card > 
     
-    <ExpenseItem
-     title={expense[1].Title} 
-     date={expense[1].Date}  
-     amount={expense[1].Amount} 
-     id={expense[1].LocationOfExpenditure}> 
-     </ExpenseItem>
-     <ExpenseItem 
-     title={expense[2].Title} 
-     date={expense[2].Date}  
-     amount={expense[2].Amount} 
-     id={expense[2].LocationOfExpenditure}> 
-     </ExpenseItem>
-     <ExpenseItem 
-     title={expense[3].Title} 
-     date={expense[3].Date}  
-     amount={expense[3].Amount} 
-     id={expense[3].LocationOfExpenditure}> 
-     </ExpenseItem>
-    </card>
-
-  );
-}
-}
+     <NewExpense  onaddExpense={addExpenseHandeler} />
+     < ExpensesFilter selected={filteredYear} onchange={filteredChangeHandler} ></ExpensesFilter>
+    
+        
+ { expenses.map((item)=>
+  <ExpenseItem 
+  key={item.id}
+  title={item.Title} 
+  date={item.Date}  
+  amount={item.Amount} 
+  
+  LocationOfExpenditure={item.LocationOfExpenditure}> 
+  </ExpenseItem>
+  ) }
+    </Card>
+    );
+ }
+  
 
 export default App;  
 
 
-
-
-{/*    
- { expense.map((item)=>
-  <ExpenseItem 
-  title={item.Title} 
-  date={item.Date}  
-  amount={item.Amount} 
-  id={item.id}
-  LocationOfExpenditure={item.LocationOfExpenditure}> 
-  </ExpenseItem>
-  ) } */}

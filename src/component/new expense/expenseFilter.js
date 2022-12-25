@@ -1,29 +1,49 @@
-import React from "react";
+// import React from "react";
+import './expenseFilter.css'
+// const ExpensesFilter = (props) => {
 
-import './expenseFilter.css';
+//     const dropdownChangeHandler = (event) => {
+//         props.onChange(event.target.value);
+//     };
 
-const ExpensesFilter=(props)=>{
-   const dropdownChangeHandler=(event)=>{
-    props.onChangeFilter(event.target.value);
-   }
+//     return (
+//         <div className='expenses-filter'>
+//             <div className='expenses-filter__control'>
+//               <label>filter</label>
+//                 <select value={props.selected} onChange={dropdownChangeHandler}>
+//                     <option value='2022'>2022</option>
+//                     <option value='2021'>2021</option>
+//                     <option value='2020'>2029</option>
+//                     <option value='2019'>2020</option>
+//                 </select>
+//             </div>
+//         </div>
+//     );
+// }
 
-return(
-    <div className="expense-filter">
-        <div className="expense-filter__control">
-            <label>Filter by Year</label>
-            <select value={props.selected} onchange={dropdownChangeHandler} >
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>  
-            </select>
-            
+// export default ExpensesFilter; 
+import React from 'react';
 
-        
-        </div>
+
+
+const ExpensesFilter = (props) => {
+  const dropdownChangeHandler = (event) => {
+    props.onChange(event.target.value);
+  };
+
+  return (
+    <div className='expenses-filter'>
+      <div className='expenses-filter__control'>
+        <label>Filter by year</label>
+        <select value={props.selected} onChange={dropdownChangeHandler}>
+          <option value='2022'>2022</option>
+          <option value='2021'>2021</option>
+          <option value='2020'>2020</option>
+          <option value='2019'>2019</option>
+        </select>
+      </div>
     </div>
-);
+  );
 };
-
-
 
 export default ExpensesFilter;

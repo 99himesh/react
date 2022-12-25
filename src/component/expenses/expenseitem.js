@@ -3,7 +3,7 @@ import React,{useState} from 'react';
 import './Expenseitem.css';
 import ExpenseDate from './ExpenceDate';
 import ExpenseDetails from './expenses';
-import card from '../UI/card'
+import Card from '../UI/card'
 const ExpenseItem=(props)=>{
 
     // const DeleteExpense=()=>{
@@ -20,12 +20,12 @@ const ExpenseItem=(props)=>{
         setTitle("updated");       
     }
     return  (
-          <card className='expense-item' >
+          <Card className='expense-item' >
             <ExpenseDate  date={props.date}></ExpenseDate>
             <ExpenseDetails title = {title}  amount = {amount}/>
            <button onClick={clickedhandler}>Change title</button>
            <button onClick={channgeprice}>change Expense</button>
-        </card>
+        </Card>
     ); 
 }
 export default ExpenseItem;
