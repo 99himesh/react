@@ -1,8 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import card from './component/UI/card';
+import ExpensesFilter from './component/new expense/expenseFilter';
 
 import NewExpense from './component/new expense/NewExpense';
 import ExpenseItem from './component/expenses/expenseitem';
+import { useState } from 'react';
 const App=()=> {
     const expense=[
        {id:'e1',Date:new Date(2021,2,28), Title:'car Insourence',Amount:294.76,LocationOfExpenditure:'Lucknow'},
@@ -10,7 +13,7 @@ const App=()=> {
        {id:'e3', Date:new Date(2021,2,28), Title:'truck Insourence',Amount:300.98,LocationOfExpenditure:'Madhya pradesh'},
        { id:'e4',Date:new Date(2021,5,29), Title:'life Insourence',Amount:100.76,LocationOfExpenditure:'Jubalia'},
        {id:'e5',Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'delhi'},
-       {id:'e6',Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'noida'}
+       {id:'e6',  Date:new Date(2020,7,29), Title:'lifere Insourence',Amount:100.76,LocationOfExpenditure:'noida'}
       ];
 
 const addExpenseHandeler=(expense)=>{
@@ -19,13 +22,19 @@ const addExpenseHandeler=(expense)=>{
 
 }
 
+const Expenses=(props)=>{
+  const [filteredYear,setFilteredYear]=useState('2020');
 
+
+const filteredChangeHandler=selectedYear=>{
+  setFilteredYear(selectedYear);
+}
 
   return (
 
    
     <card >
-      
+     < ExpensesFilter selected={filteredYear} onchange={filteredChangeHandler}  />
     <NewExpense  onaddExpense={addExpenseHandeler} />
     
     <ExpenseItem
@@ -49,6 +58,7 @@ const addExpenseHandeler=(expense)=>{
     </card>
 
   );
+}
 }
 
 export default App;  
