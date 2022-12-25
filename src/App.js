@@ -32,6 +32,7 @@ const addExpenseHandeler=(expense)=>{
 };
 
 
+
   // console.log('In App.js');
   // console.log(expense);
 
@@ -42,14 +43,19 @@ const addExpenseHandeler=(expense)=>{
 // }
 const filteredChangeHandler=selectedYear=> setFilteredYear(selectedYear);
 
+
+const FIlteredExpenses=expenses.filter(expense=>(
+    expense.Date.getFullYear().toString()===filteredYear
+));
+
    return (
     <Card > 
     
      <NewExpense  onaddExpense={addExpenseHandeler} />
-     < ExpensesFilter selected={filteredYear} onchange={filteredChangeHandler} ></ExpensesFilter>
+     < ExpensesFilter selected={filteredYear} onChange={filteredChangeHandler} ></ExpensesFilter>
     
         
- { expenses.map((item)=>
+ { FIlteredExpenses.map((item)=>
   <ExpenseItem 
   key={item.id}
   title={item.Title} 
