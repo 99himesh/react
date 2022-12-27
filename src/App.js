@@ -7,6 +7,7 @@ import NewExpense from './component/new expense/NewExpense';
 import ExpenseList from './component/new expense/ExpensesList';
 import ExpenseItem from './component/expenses/expenseitem';
 import ExpenseDetails from './component/expenses/expenses';
+import ExpensesChart from './component/new expense/expensesChart';
 
 
 const DUMMY_EXPENSES=[
@@ -54,6 +55,7 @@ const FIlteredExpenses=expenses.filter(expense=>(
     
      <NewExpense  onaddExpense={addExpenseHandeler} />
      < ExpensesFilter selected={filteredYear} onChange={filteredChangeHandler} />
+     <ExpensesChart  expenses={ FIlteredExpenses}/>
      <ExpenseList  item={FIlteredExpenses} />
   {/* {FIlteredExpenses.length===0  &&   <p> you dont have no more item</p>} 
   {FIlteredExpenses.length>0 &&
