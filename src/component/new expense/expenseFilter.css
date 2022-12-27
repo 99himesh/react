@@ -1,9 +1,15 @@
 .expenses-filter {
-    color: rgb(0, 0, 0);
+    color: rgb(7, 189, 255);
     padding: 0 1rem;
+    background-color: yellow
+    ;
     font-size: 30px;
     font-weight: bolder;
   }
+ body{
+  color: black;
+  background-color: rgb(255, 0, 200);
+ }
   
   .expenses-filter__control {
     display: flex;
@@ -24,3 +30,4 @@
     font-weight: bold;
     border-radius: 6px;
   }
+ 

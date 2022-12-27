@@ -4,6 +4,7 @@ import Card from './component/UI/card';
 import ExpensesFilter from './component/new expense/expenseFilter';
 import React,{useState} from 'react';
 import NewExpense from './component/new expense/NewExpense';
+import ExpenseList from './component/new expense/ExpensesList';
 import ExpenseItem from './component/expenses/expenseitem';
 import ExpenseDetails from './component/expenses/expenses';
 
@@ -52,21 +53,22 @@ const FIlteredExpenses=expenses.filter(expense=>(
     <Card > 
     
      <NewExpense  onaddExpense={addExpenseHandeler} />
-     < ExpensesFilter selected={filteredYear} onChange={filteredChangeHandler} ></ExpensesFilter>
-    
-        
- { FIlteredExpenses.map((item)=>
+     < ExpensesFilter selected={filteredYear} onChange={filteredChangeHandler} />
+     <ExpenseList  item={FIlteredExpenses} />
+  {/* {FIlteredExpenses.length===0  &&   <p> you dont have no more item</p>} 
+  {FIlteredExpenses.length>0 &&
+  FIlteredExpenses.map((item)=>
   <ExpenseItem 
   key={item.id}
   title={item.Title} 
   date={item.Date}  
   amount={item.Amount} 
-  
   LocationOfExpenditure={item.LocationOfExpenditure}> 
   </ExpenseItem>
-  ) }
+  )}; */}
+
     </Card>
-    );
+  );
  }
   
 

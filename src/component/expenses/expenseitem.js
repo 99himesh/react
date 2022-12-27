@@ -20,12 +20,14 @@ const ExpenseItem=(props)=>{
         setTitle("updated");       
     }
     return  (
+        <li>
           <Card className='expense-item' >
             <ExpenseDate  date={props.date}></ExpenseDate>
             <ExpenseDetails title = {title}  amount = {amount}/>
            <button onClick={clickedhandler}>Change title</button>
            <button onClick={channgeprice}>change Expense</button>
         </Card>
+        </li>
     ); 
 }
 export default ExpenseItem;
